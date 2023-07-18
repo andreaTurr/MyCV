@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">My CV</string>
+    <string name="back_button">back button</string>
+    <string name="CVName">Turrini Andrea</string>
+
+    <string name="introductionTitle">Introduction</string>
+    <string name="introductionBody">Ciao! Mi chiamo Andrea e mi piace l\'informatica: dal Bare-metal programming alla programmazione di Applicazioni Mobile non ho paura di darmi da fare e di studiare ogni novitá, che si tratti di metaverso o di intelligenza artificiale non mi faccio indietro!</string>
+
+    <string name="careerTitle">Career</string>
+    <string name="careerBody">Placeholder for career body</string>
+
+    <string name="educationTitle">Education</string>
+    <string name="educationBody">Placeholder for education body</string>
+
+    <string name="skillsTitle">Skills</string>
+    <string name="skillsBody">Placeholder for skills body</string>
+
+    <string name="contactTitle">Contact &amp; Info</string>
+    <string name="contactBody">
+        Phone: 3483403480,\n
+        E-mail: andrea.turrini326@gmail.com,\n\n
+        Birthday: 26/03/2000,\n
+        Indirizzo: Garbagnate Milanese(MI)
+    </string>
+    <string name="icon">icon</string>
+    <string name="computers">Computers</string>
+    <string name="languages">Languages</string>
+    <string name="otherSkillsTitle">Other</string>
+    <string name="otherSkillsBody">placeholeder for otherSkillsBody</string>
+    <string name="passionsTitle"><![CDATA[Passions & Hobbies]]></string>
+    <string name="passionsBody">Placeholder for passionsBody</string>
+    <string name="itisTitle">ITIS Giulio riva Saronno</string>
+    <string name="itisBody">Istituto Tecnico Industriale - indirizzo informatica/n Voto di Diploma: 100 con lode su 100</string>
+    <string name="unimibTitle">Laurea triennale in Bicocca</string>
+    <string name="unimibBody">Laurea triennale in Bicocca, indirizzo Scienze e tecnologie informatiche</string>
+    <string name="gpsBuddy">Gps-Buddy</string>
+    <string name="firstWorkTitle">Gps-buddy</string>
+    <string name="firstWorkDate">12.2021-Present</string>
+    <string name="firstWorkBody">programmatore c (Firmware Engineer)</string>
+    <string name="stageSecondTitle">Stage - Antycip Simulation</string>
+    <string name="stageSecondBody">Introduzione a programmi nell\'ambiete della programazione: VRForces, Qualnet, CM-Labs, Vortex Studio.Introduzione a strumenti di realtà virtuale e simulazione come Oculus Rift e postazioni di simulazioni di macchine in ambito edile o navale.</string>
+    <string name="stageSecondDate">2019</string>
+    <string name="stageFirstDate">2018</string>
+    <string name="stageFirstTitle">Stage - Bettini video &amp; security technology</string>
+    <string name="stageFirstBody">introduzione base programmazione c# e problem solving</string>
+    <string name="firstWorkDuration">18 mesi (in corso)</string>
+    <string name="stageSecondDuration">2 settimane</string>
+    <string name="stageFirstDuration">2 settimane</string>
+    <string name="unimibDate">2023</string>
+    <string name="unimibDuration">3 anni</string>
+    <string name="itisDate">2020</string>
+    <string name="itisDuration">5 anni</string>
+
+
+</resources>
