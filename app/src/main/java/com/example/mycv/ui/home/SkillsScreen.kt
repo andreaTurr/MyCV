@@ -3,10 +3,12 @@ package com.example.mycv.ui.home
 import android.annotation.SuppressLint
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,6 +26,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -67,32 +71,65 @@ fun SkillsScreen(
 
 @Composable
 fun MyCVApplicationSkills(modifier: Modifier = Modifier) {
-    Column(modifier = modifier) {
-        CardTextContainer(
-            item = Item(
-                title = stringResource(id = R.string.skillsTitle),
-                body = stringResource(id = R.string.skillsBody),
-            ),
-            modifier = Modifier,
-            icon = R.drawable.baseline_lightbulb_24,
-            bodyMaxLines = 100,
-        )
-        SkillsDisplayer(stringResource(id = R.string.computers), Skills)
-        SkillsDisplayer(stringResource(id = R.string.languages), Languages)
-        CardTextContainer(
-            Item(
-                title = stringResource(id = R.string.otherSkillsTitle),
-                body = stringResource(id = R.string.otherSkillsBody),
-            ),
-            modifier = Modifier,
+    Box(modifier = modifier
+        .fillMaxSize()
+    ){
+       /* Image(
+            painter = painterResource(id = R.drawable.baseline_lightbulb_24),
+            contentDescription = stringResource(id = R.string.icon),
+            //tint = Color.Green,
+            colorFilter = ColorFilter.tint(
+                color = Color.Green),
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                //.padding(dimensionResource(id = R.dimen.padding_small))
+                .fillMaxHeight()
+                .padding(dimensionResource(id = R.dimen.padding_small))
+        )*/
+        Column(
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+        ) {
+            SkillsDisplayer(
+                stringResource(id = R.string.computers),
+                Skills,
+                color = colorResource(id = R.color.tertiaryContainerYellow)
+            )
+            SkillsDisplayer(
+                stringResource(id = R.string.languages),
+                Languages,
+                color = colorResource(id = R.color.tertiaryContainerYellow))
+            CardTextContainer(
+                Item(
+                    title = stringResource(id = R.string.passionsTitle),
+                    body = stringResource(id = R.string.passionsBody),
+                ),
+                Modifier.fillMaxWidth(),
+                bodyMaxLines = 100,
+                color = colorResource(id = R.color.tertiaryContainerYellow)
+            )
+            /*CardTextContainer(
+                Item(
+                    title = stringResource(id = R.string.otherSkillsTitle),
+                    body = stringResource(id = R.string.otherSkillsBody),
+                ),
+                modifier = Modifier,
 
-        )
+            )*/
+
+        }
     }
+
 
 }
 
 @Composable
-fun SkillsDisplayer(title: String, skills: List<Skill>, modifier: Modifier = Modifier){
+fun SkillsDisplayer(
+    title: String,
+    skills: List<Skill>,
+    modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.tertiaryContainer
+) {
     val shape = Shapes.small
     Card(
         modifier = Modifier
@@ -100,7 +137,7 @@ fun SkillsDisplayer(title: String, skills: List<Skill>, modifier: Modifier = Mod
         elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
         shape = shape,
         border = BorderStroke(color = MaterialTheme.colorScheme.onTertiaryContainer, width = 1.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)
+        colors = CardDefaults.cardColors(containerColor = color)
     ) {
         Text(
             modifier = Modifier
@@ -108,7 +145,7 @@ fun SkillsDisplayer(title: String, skills: List<Skill>, modifier: Modifier = Mod
                 .padding(top = dimensionResource(id = R.dimen.padding_small)),
             text = title,//stringResource(id = R.string.computers),
             style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
-            color = MaterialTheme.colorScheme.onTertiaryContainer
+            color = MaterialTheme.colorScheme.onTertiaryContainer,
         )
         LazyColumn(modifier = modifier) {
             itemsIndexed(items = skills){index, skill ->
@@ -139,7 +176,7 @@ fun SkillDiplay(skill: Skill, modifier: Modifier = Modifier) {
             modifier = Modifier
                 .weight(1f)
                 .align(Alignment.CenterVertically),
-            text = skill.name,
+            text = stringResource(id = skill.name),
             textAlign = TextAlign.Right,
         )
         Row(modifier = Modifier
@@ -147,7 +184,7 @@ fun SkillDiplay(skill: Skill, modifier: Modifier = Modifier) {
             .weight(1f)) {
             repeat(competence) {
                 Icon(
-                    painter = painterResource(id = R.drawable.baseline_circle_24),
+                    painter = painterResource(id = R.drawable.baseline_star_24),
                     contentDescription = "circle Full",
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = modifier
@@ -158,7 +195,7 @@ fun SkillDiplay(skill: Skill, modifier: Modifier = Modifier) {
             }
             repeat(5-competence) {
                 Icon(
-                    painter = painterResource(id = R.drawable.baseline_circle_24),
+                    painter = painterResource(id = R.drawable.baseline_star_24),
                     contentDescription = "circle empty",
                     tint = MaterialTheme.colorScheme.onTertiaryContainer,
                     modifier = modifier

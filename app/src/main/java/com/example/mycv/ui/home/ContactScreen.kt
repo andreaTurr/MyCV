@@ -40,7 +40,8 @@ fun ContactScreen(
 @Composable
 fun MyCVApplicationContact(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
-        CardTextContainer(item = Item(
+        CardTextContainer(
+            item = Item(
             title = stringResource(id = R.string.contactTitle),
             body = stringResource(id = R.string.contactBody),
             ),

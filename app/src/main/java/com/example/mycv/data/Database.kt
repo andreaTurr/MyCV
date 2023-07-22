@@ -1,19 +1,20 @@
 package com.example.mycv.data
 
+import androidx.compose.ui.res.stringResource
 import com.example.mycv.R
 
 
 val Skills = listOf(
-    Skill("Word", COMPETENCE.FOURSTARS),
-    Skill("C", COMPETENCE.FOURSTARS),
-    Skill("C#", COMPETENCE.FOURSTARS),
-    Skill("Java", COMPETENCE.FOURSTARS),
-    Skill("Programmazione Android", COMPETENCE.FIVESTARS),
-    Skill("Versionamento(Git)", COMPETENCE.FOURSTARS),
+    Skill(R.string.Word, COMPETENCE.FOURSTARS),
+    Skill(R.string.C, COMPETENCE.FOURSTARS),
+    Skill(R.string.CSharp, COMPETENCE.FOURSTARS),
+    Skill(R.string.Java, COMPETENCE.FOURSTARS),
+    Skill(R.string.AndroidProgramming, COMPETENCE.FIVESTARS),
+    Skill(R.string.GitVersionamento, COMPETENCE.FOURSTARS),
 )
 val Languages = listOf(
-    Skill("Italian", COMPETENCE.FIVESTARS),
-    Skill("English", COMPETENCE.FOURSTARS),
+    Skill(R.string.italian, COMPETENCE.FIVESTARS),
+    Skill(R.string.english, COMPETENCE.FOURSTARS),
 )
 
 val Education = listOf(

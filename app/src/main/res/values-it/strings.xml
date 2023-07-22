@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="introductionTitle">Introduzione</string>
+    <string name="introductionBody">Ciao! Mi chiamo Andrea e mi piace l\'informatica: dal Bare-metal programming alla programmazione di Applicazioni Mobile non ho paura di darmi da fare e di studiare ogni novitá, che si tratti di metaverso o di intelligenza artificiale non mi faccio indietro!</string>
+    <string name="careerTitle">Carriera</string>
+    <string name="careerBody">Osserva la mia Carriera Stellare</string>
+    <string name="educationTitle">Istruzione</string>
+    <string name="educationBody">Vedi il mio Percorso formativo!</string>
+    <string name="skillsBody">Guarda le mie Skills Stellari!</string>
+    <string name="contactTitle">Contatti &amp; Info</string>
+    <string name="contactBody">Telefono: 3483403480\nE-mail: andrea.turrini326@gmail.com\nData Nascita: 26/03/2000\nIndirizzo: Garbagnate Milanese(MI)</string>
+    <string name="computers">Computer</string>
+    <string name="languages">Lingue</string>
+    <string name="otherSkillsTitle">Altro</string>
+    <string name="otherSkillsBody">placeholeder for otherSkillsBody</string>
+    <string name="passionsTitle"><![CDATA[Passioni & Hobbie]]></string>
+    <string name="passionsBody">Mi piace capire come funzionano le nuove tecnologie dalle Criptovalute hai videogames, mi piace anche leggere sul mio kindle:).</string>
+    <string name="unimibTitle">Bachelor\'s degree in Bicocca</string>
+    <string name="unimibBody">Bachelor\'s degree in Bicocca, majoring in computer science and technology</string>
+    <string name="firstWorkDate">12.2021-Presente</string>
+    <string name="firstWorkBody">Programmatore c (ingegnere del firmware)</string>
+    <string name="stageSecondBody">Introduzione a programmi nell\'ambiete della programazione: VRForces, Qualnet, CM-Labs, Vortex Studio.Introduzione a strumenti di realtà virtuale e simulazione come Oculus Rift e postazioni di simulazioni di macchine in ambito edile o navale.</string>
+    <string name="stageFirstBody">Introduzione base programmazione c# e problem solving</string>
+    <string name="firstWorkDuration">18 mesi (in corso)</string>
+    <string name="stageSecondDuration">2 settimane</string>
+    <string name="stageFirstDuration">2 settimane</string>
+    <string name="unimibDuration">3 anni</string>
+    <string name="itisDuration">3 anni</string>
+    <string name="itisBody">Istituto Tecnico Industriale - indirizzo informatica\n Voto di Diploma: 100 con lode su 100</string>
+    <string name="italian">Italiano</string>
+    <string name="english">Inglese</string>
+    <string name="AndroidProgramming">Programmazione Android</string>
+    <string name="GitVersionamento">Versionamento(Git)</string>
+</resources>

@@ -16,6 +16,8 @@
 
 package com.example.mycv.data
 
+import androidx.annotation.StringRes
+
 /**
  * Entity data class represents a single row in the database.
  */
@@ -28,6 +30,6 @@ enum class COMPETENCE(val competence:Int = 0) {
 }
 
 data class Skill(
-    val name: String,
+    @StringRes val name: Int,
     val competence: COMPETENCE,
 )

@@ -1,55 +1,58 @@
 <resources>
-    <string name="app_name">My CV</string>
-    <string name="back_button">back button</string>
-    <string name="CVName">Turrini Andrea</string>
+    <string name="app_name" translatable="false">My CV</string>
+    <string name="back_button" translatable="false">back button</string>
+    <string name="CVName" translatable="false">Turrini Andrea</string>
 
     <string name="introductionTitle">Introduction</string>
-    <string name="introductionBody">Ciao! Mi chiamo Andrea e mi piace l\'informatica: dal Bare-metal programming alla programmazione di Applicazioni Mobile non ho paura di darmi da fare e di studiare ogni novitá, che si tratti di metaverso o di intelligenza artificiale non mi faccio indietro!</string>
+    <string name="introductionBody">Hi! My name is Andrea and I love computer science: from Bare-metal programming to Mobile Application programming I\'m not afraid to get busy and study every new thing, whether it\'s metaverse or artificial intelligence I don\'t back down!</string>
 
     <string name="careerTitle">Career</string>
-    <string name="careerBody">Placeholder for career body</string>
+    <string name="careerBody">Observe My Splendid Career!</string>
 
     <string name="educationTitle">Education</string>
-    <string name="educationBody">Placeholder for education body</string>
+    <string name="educationBody">Watch my Educational Path!</string>
 
-    <string name="skillsTitle">Skills</string>
-    <string name="skillsBody">Placeholder for skills body</string>
+    <string name="skillsTitle" translatable="false">Skills</string>
+    <string name="skillsBody">See my Stellar Skills!</string>
 
     <string name="contactTitle">Contact &amp; Info</string>
-    <string name="contactBody">
-        Phone: 3483403480,\n
-        E-mail: andrea.turrini326@gmail.com,\n\n
-        Birthday: 26/03/2000,\n
-        Indirizzo: Garbagnate Milanese(MI)
-    </string>
-    <string name="icon">icon</string>
+    <string name="contactBody">Phone: 3483403480\nE-mail: andrea.turrini326@gmail.com\nBirthday: 26/03/2000\nAddress: Garbagnate Milanese(MI)</string>
+    <string name="icon" translatable="false">icon</string>
     <string name="computers">Computers</string>
     <string name="languages">Languages</string>
     <string name="otherSkillsTitle">Other</string>
     <string name="otherSkillsBody">placeholeder for otherSkillsBody</string>
     <string name="passionsTitle"><![CDATA[Passions & Hobbies]]></string>
-    <string name="passionsBody">Placeholder for passionsBody</string>
-    <string name="itisTitle">ITIS Giulio riva Saronno</string>
-    <string name="itisBody">Istituto Tecnico Industriale - indirizzo informatica/n Voto di Diploma: 100 con lode su 100</string>
+    <string name="passionsBody">I like to understand how new technologies work from cryptocurrencies to video games, I also like to read on my kindle:).</string>
+    <string name="itisTitle" translatable="false">ITIS Giulio riva Saronno</string>
+    <string name="itisBody">Industrial Technical Institute - computer science address\nDiploma grade: 100 with honors out of 100</string>
     <string name="unimibTitle">Laurea triennale in Bicocca</string>
     <string name="unimibBody">Laurea triennale in Bicocca, indirizzo Scienze e tecnologie informatiche</string>
-    <string name="gpsBuddy">Gps-Buddy</string>
-    <string name="firstWorkTitle">Gps-buddy</string>
+    <string name="gpsBuddy" translatable="false">Gps-Buddy</string>
+    <string name="firstWorkTitle" translatable="false">Gps-buddy</string>
     <string name="firstWorkDate">12.2021-Present</string>
-    <string name="firstWorkBody">programmatore c (Firmware Engineer)</string>
-    <string name="stageSecondTitle">Stage - Antycip Simulation</string>
-    <string name="stageSecondBody">Introduzione a programmi nell\'ambiete della programazione: VRForces, Qualnet, CM-Labs, Vortex Studio.Introduzione a strumenti di realtà virtuale e simulazione come Oculus Rift e postazioni di simulazioni di macchine in ambito edile o navale.</string>
-    <string name="stageSecondDate">2019</string>
-    <string name="stageFirstDate">2018</string>
-    <string name="stageFirstTitle">Stage - Bettini video &amp; security technology</string>
-    <string name="stageFirstBody">introduzione base programmazione c# e problem solving</string>
-    <string name="firstWorkDuration">18 mesi (in corso)</string>
-    <string name="stageSecondDuration">2 settimane</string>
-    <string name="stageFirstDuration">2 settimane</string>
-    <string name="unimibDate">2023</string>
-    <string name="unimibDuration">3 anni</string>
-    <string name="itisDate">2020</string>
-    <string name="itisDuration">5 anni</string>
+    <string name="firstWorkBody">C programmer (Firmware Engineer)</string>
+    <string name="stageSecondTitle" translatable="false">Stage - Antycip Simulation</string>
+    <string name="stageSecondBody">Introduction to programs in the programming environment: VRForces, Qualnet, CM-Labs, Vortex Studio.Introduction to virtual reality and simulation tools such as Oculus Rift and machine simulation stations in construction or shipbuilding.</string>
+    <string name="stageSecondDate" translatable="false">2019</string>
+    <string name="stageFirstDate" translatable="false">2018</string>
+    <string name="stageFirstTitle" translatable="false">Stage - Bettini video &amp; security technology</string>
+    <string name="stageFirstBody">Basic c# programming introduction and problem solving</string>
+    <string name="firstWorkDuration">18 Month (current)</string>
+    <string name="stageSecondDuration">2 weeks</string>
+    <string name="stageFirstDuration">2 weeks</string>
+    <string name="unimibDate" translatable="false">2023</string>
+    <string name="unimibDuration">3 years</string>
+    <string name="itisDate" translatable="false">2020</string>
+    <string name="itisDuration">5 years</string>
+    <string name="italian">Italian</string>
+    <string name="english">English</string>
+    <string name="Word" translatable="false">Word</string>
+    <string name="C" translatable="false">C</string>
+    <string name="CSharp" translatable="false">C#</string>
+    <string name="Java" translatable="false">Java</string>
+    <string name="AndroidProgramming">AndroidProgramming</string>
+    <string name="GitVersionamento">Versioning(Git)</string>
 
 
 </resources>

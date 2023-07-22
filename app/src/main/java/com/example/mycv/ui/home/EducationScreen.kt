@@ -9,12 +9,12 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.example.compose.MyCVTheme
 import com.example.mycv.R
-import com.example.mycv.data.Career
 import com.example.mycv.data.Education
 import com.example.mycv.data.Item
 
@@ -46,18 +46,19 @@ fun EducationScreen(
 @Composable
 fun MyCVApplicationEducation(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
-        CardTextContainer(
+        /*CardTextContainer(
             item = Item(
                 title = stringResource(id = R.string.educationTitle),
                 body = stringResource(id = R.string.educationBody),
             ),
             icon = R.drawable.baseline_school_24,
             bodyMaxLines = 100,
-        )
+        )*/
         LazyColumn(){
             items(items = Education){item->
                 CareerContainer(
                     careerItem = item,
+                    color = colorResource(id = R.color.tertiaryContainerRed)
                 )
             }
         }

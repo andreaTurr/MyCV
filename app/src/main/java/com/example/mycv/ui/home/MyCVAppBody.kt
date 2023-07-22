@@ -22,6 +22,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -50,42 +52,56 @@ fun MyCVApplicationMainBody(
                 title = stringResource(id = R.string.introductionTitle),
                 body = stringResource(id = R.string.introductionBody),
             ),
-            Modifier.fillMaxWidth(),
+            Modifier
+                .fillMaxWidth()
+                .padding(bottom = dimensionResource(id = R.dimen.padding_small)),
             onclick = { navController.navigate(ROUTES.INTRODUCTION.route) },
-            bodyMaxLines = 3,
+            bodyMaxLines = 10,
         )
         Column(Modifier.weight(1f)) {
-            CardTextContainer(item = Item(
+
+            CardTextContainer(
+                item = Item(
+                    title = stringResource(id = R.string.educationTitle),
+                    body = stringResource(id = R.string.educationBody),
+                ),
+                onclick = { navController.navigate(ROUTES.EDUCATION.route) },
+                icon = R.drawable.baseline_school_24,
+                position = Position.RIGHT,
+                color = colorResource(id = R.color.tertiaryContainerRed),
+            )
+            CardTextContainer(
+                item = Item(
                 title = stringResource(id = R.string.careerTitle),
                 body = stringResource(id = R.string.careerBody),
                 ),
-                icon = R.drawable.baseline_business_center_24,
                 onclick = { navController.navigate(ROUTES.CAREER.route) },
-                position = Position.LEFT
+                icon = R.drawable.baseline_business_center_24,
+                position = Position.LEFT,
+                color = colorResource(id = R.color.tertiaryContainerGreen),
             )
-            CardTextContainer(item = Item(
-                title = stringResource(id = R.string.educationTitle),
-                body = stringResource(id = R.string.educationBody),
-                ),
-                icon = R.drawable.baseline_school_24,
-                onclick = { navController.navigate(ROUTES.EDUCATION.route) },
-                position = Position.RIGHT
-            )
-            CardTextContainer(item = Item(
+            CardTextContainer(
+                item = Item(
                     title = stringResource(id = R.string.skillsTitle),
                     body = stringResource(id = R.string.skillsBody),
                 ),
-                icon = R.drawable.baseline_lightbulb_24,
                 onclick = { navController.navigate(ROUTES.SKILLS.route) },
-                position = Position.LEFT
+                icon = R.drawable.baseline_lightbulb_24,
+                position = Position.RIGHT,
+                color = colorResource(id = R.color.tertiaryContainerYellow),
             )
-            CardTextContainer(item = Item(
+            CardTextContainer(
+                item = Item(
                 title = stringResource(id = R.string.contactTitle),
                 body = stringResource(id = R.string.contactBody),
                 ),
-                icon = R.drawable.baseline_contact_page_24,
+                modifier = Modifier
+                    .padding(top = dimensionResource(id = R.dimen.padding_small)),
                 onclick = { navController.navigate(ROUTES.CONTACTS.route) },
-                position = Position.RIGHT
+                //position = Position.RIGHT,
+                icon = R.drawable.baseline_contact_page_24,
+                bodyMaxLines = 10,
+                showIconWhenCentered = true,
             )
         }
     }
@@ -95,11 +111,13 @@ fun MyCVApplicationMainBody(
 @Composable
 fun CardTextContainer(
     item: Item,
-    modifier: Modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)),
-    onclick:  () -> Unit = {},
+    modifier: Modifier = Modifier,//.padding(dimensionResource(id = R.dimen.padding_small)),
+    onclick: (() -> Unit)? = null,
     @DrawableRes icon: Int = 0,
     position: Position = Position.CENTER,
-    bodyMaxLines: Int = 1
+    bodyMaxLines: Int = 1,
+    showIconWhenCentered: Boolean = false,
+    color: Color = MaterialTheme.colorScheme.tertiaryContainer,
 ) {
     val alignmentText = when (position){
         Position.RIGHT -> Alignment.End
@@ -116,23 +134,26 @@ fun CardTextContainer(
         Position.LEFT -> CutCornerShape(topEnd = 8.dp, bottomStart = 8.dp)
         Position.CENTER -> CutCornerShape(8.dp)
     }
+    val cardModifier = if (onclick == null) Modifier else Modifier.clickable { onclick() }
 
     Row(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .padding(
+                horizontal = dimensionResource(id = R.dimen.padding_small),
+                vertical = dimensionResource(id = R.dimen.padding_very_small)
+            ),
         horizontalArrangement = arrangementCard
     ) {
         if (position == Position.RIGHT)
             Spacer(Modifier.weight(1f))
         Card(
-            modifier = Modifier
-                .clickable { onclick() }
-                .padding(dimensionResource(id = R.dimen.padding_small))
+            modifier = cardModifier
                 .weight(3f),
             elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
             shape = shape,
             border = BorderStroke(color = MaterialTheme.colorScheme.onTertiaryContainer, width = 1.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)
+            colors = CardDefaults.cardColors(containerColor = color)
         ) {
             Row(
                 horizontalArrangement = Arrangement.SpaceEvenly,
@@ -160,12 +181,12 @@ fun CardTextContainer(
                         //color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                 }
-                if(position==Position.LEFT)
+                if(position==Position.LEFT || showIconWhenCentered)
                     CardTextContainerIcon(icon, Modifier.weight(1f))
             }
 
         }
-        if (position == Position.LEFT)
+        if (position == Position.LEFT )
             Spacer(Modifier.weight(1f))
     }
 
