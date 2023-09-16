@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
@@ -76,39 +78,10 @@ fun MyCVApplicationCareer(modifier: Modifier = Modifier) {
     Column(modifier = modifier
         .fillMaxSize()
     ) {
-        /*CardTextContainer(
-            item = Item(
-                title = stringResource(id = R.string.careerTitle),
-                body = stringResource(id = R.string.careerBody),
-            ),
-            icon = R.drawable.baseline_business_center_24,
-            bodyMaxLines = 100,
-        )*/
-       /* Icon(
-            painter = painterResource(id = R.drawable.baseline_business_center_24),
-            contentDescription = stringResource(id = R.string.icon),
-            tint = Color.Green,
-            modifier = Modifier
-                //.padding(dimensionResource(id = R.dimen.padding_small))
-                .fillMaxSize()
-        )*/
-        /*Image(
-            painter = painterResource(id = R.drawable.baseline_business_center_24),
-            contentDescription = stringResource(id = R.string.icon),
-            //tint = Color.Green,
-            colorFilter = ColorFilter.tint(
-                color = Color.Green),
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                //.padding(dimensionResource(id = R.dimen.padding_small))
-                .fillMaxHeight()
-                .padding(dimensionResource(id = R.dimen.padding_small))
-        )*/
-
         LazyColumn(
             //verticalArrangement = Arrangement.Center,
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 //.padding(dimensionResource(id = R.dimen.padding_small))
         ){
             items(items = Career){item->
@@ -118,6 +91,8 @@ fun MyCVApplicationCareer(modifier: Modifier = Modifier) {
                 )
             }
         }
+        Spacer(modifier = Modifier.weight(1f))
+        ImageAtBottom(R.drawable.baseline_business_center_24)
     }
 }
 
@@ -130,7 +105,10 @@ fun CareerContainer(
     @DrawableRes icon: Int = 0,
     color: Color = MaterialTheme.colorScheme.tertiaryContainer
 ) {
-    val shape = CutCornerShape(dimensionResource(id = R.dimen.padding_small))// CutCornerShape(8.dp)
+    var shape : Shape = CutCornerShape(dimensionResource(id = R.dimen.padding_small))// CutCornerShape(8.dp)
+    shape = CloudShape()
+    val borderColor = MaterialTheme.colorScheme.onTertiaryContainer
+    var border = BorderStroke(color = borderColor.copy(alpha = 0.5f), width = 1.dp)
     Row(
         modifier = modifier
             .fillMaxWidth(),
@@ -142,7 +120,7 @@ fun CareerContainer(
                 .weight(3f),
             elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
             shape = shape,
-            border = BorderStroke(color = MaterialTheme.colorScheme.onTertiaryContainer, width = 1.dp),
+            border = border,
             colors = CardDefaults.cardColors(
                 containerColor = color)
         ) {

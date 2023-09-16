@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -37,7 +38,7 @@ import com.example.compose.MyCVTheme
 import com.example.mycv.R
 import com.example.mycv.data.Item
 
-enum class Position {
+enum class PositionCard {
     LEFT, RIGHT, CENTER
 }
 
@@ -67,8 +68,9 @@ fun MyCVApplicationMainBody(
                 ),
                 onclick = { navController.navigate(ROUTES.EDUCATION.route) },
                 icon = R.drawable.baseline_school_24,
-                position = Position.RIGHT,
-                color = colorResource(id = R.color.tertiaryContainerRed),
+                positionCard = PositionCard.RIGHT,
+                color = colorResource(id = R.color.tertiaryContainerEducation),
+                cloudShape = true,
             )
             CardTextContainer(
                 item = Item(
@@ -77,8 +79,9 @@ fun MyCVApplicationMainBody(
                 ),
                 onclick = { navController.navigate(ROUTES.CAREER.route) },
                 icon = R.drawable.baseline_business_center_24,
-                position = Position.LEFT,
+                positionCard = PositionCard.LEFT,
                 color = colorResource(id = R.color.tertiaryContainerGreen),
+                cloudShape = true,
             )
             CardTextContainer(
                 item = Item(
@@ -87,8 +90,9 @@ fun MyCVApplicationMainBody(
                 ),
                 onclick = { navController.navigate(ROUTES.SKILLS.route) },
                 icon = R.drawable.baseline_lightbulb_24,
-                position = Position.RIGHT,
-                color = colorResource(id = R.color.tertiaryContainerYellow),
+                positionCard = PositionCard.RIGHT,
+                color = colorResource(id = R.color.tertiaryContainerSkills),
+                cloudShape = true,
             )
             CardTextContainer(
                 item = Item(
@@ -114,27 +118,40 @@ fun CardTextContainer(
     modifier: Modifier = Modifier,//.padding(dimensionResource(id = R.dimen.padding_small)),
     onclick: (() -> Unit)? = null,
     @DrawableRes icon: Int = 0,
-    position: Position = Position.CENTER,
+    positionCard: PositionCard = PositionCard.CENTER,
     bodyMaxLines: Int = 1,
     showIconWhenCentered: Boolean = false,
     color: Color = MaterialTheme.colorScheme.tertiaryContainer,
+    cloudShape: Boolean = false,
+
 ) {
-    val alignmentText = when (position){
-        Position.RIGHT -> Alignment.End
-        Position.LEFT -> Alignment.Start
-        Position.CENTER -> Alignment.Start
+    val alignmentText = when (positionCard){
+        PositionCard.RIGHT -> Alignment.End
+        PositionCard.LEFT -> Alignment.Start
+        PositionCard.CENTER -> Alignment.Start
     }
-    val arrangementCard = when (position) {
-        Position.RIGHT -> Arrangement.End
-        Position.LEFT -> Arrangement.Start
-        Position.CENTER -> Arrangement.Start
+    val arrangementCard = when (positionCard) {
+        PositionCard.RIGHT -> Arrangement.End
+        PositionCard.LEFT -> Arrangement.Start
+        PositionCard.CENTER -> Arrangement.Start
+
     }
-    val shape = when (position){
-        Position.RIGHT -> CutCornerShape(topStart = 8.dp, bottomEnd = 8.dp)
-        Position.LEFT -> CutCornerShape(topEnd = 8.dp, bottomStart = 8.dp)
-        Position.CENTER -> CutCornerShape(8.dp)
+    var cardShape : Shape = when (positionCard){
+        PositionCard.RIGHT -> CutCornerShape(topStart = 8.dp, bottomEnd = 8.dp)
+        PositionCard.LEFT -> CutCornerShape(topEnd = 8.dp, bottomStart = 8.dp)
+        PositionCard.CENTER -> CutCornerShape(8.dp)
     }
+    //check clickable
     val cardModifier = if (onclick == null) Modifier else Modifier.clickable { onclick() }
+    var borderColor = MaterialTheme.colorScheme.onTertiaryContainer
+    var cardBorder = BorderStroke(color = borderColor, width = 1.dp)
+    var cardElevation = CardDefaults.cardElevation(defaultElevation = 5.dp)
+
+    if (cloudShape){
+        cardBorder = BorderStroke(color = borderColor.copy(0.5f), width = 1.dp)
+        cardElevation = CardDefaults.cardElevation()
+        cardShape = CloudShape()
+    }
 
     Row(
         modifier = modifier
@@ -145,21 +162,22 @@ fun CardTextContainer(
             ),
         horizontalArrangement = arrangementCard
     ) {
-        if (position == Position.RIGHT)
+        if (positionCard == PositionCard.RIGHT)
             Spacer(Modifier.weight(1f))
         Card(
+            shape = cardShape,
             modifier = cardModifier
                 .weight(3f),
-            elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
-            shape = shape,
-            border = BorderStroke(color = MaterialTheme.colorScheme.onTertiaryContainer, width = 1.dp),
-            colors = CardDefaults.cardColors(containerColor = color)
+            elevation = cardElevation,
+            border = cardBorder,
+            colors =  CardDefaults.cardColors(containerColor = color)
         ) {
             Row(
+                modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_very_small)),
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                if(position==Position.RIGHT)
+                if(positionCard==PositionCard.RIGHT)
                     CardTextContainerIcon(icon, Modifier.weight(1f))
                 Column(
                     verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small)),
@@ -181,12 +199,12 @@ fun CardTextContainer(
                         //color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                 }
-                if(position==Position.LEFT || showIconWhenCentered)
+                if(positionCard==PositionCard.LEFT || showIconWhenCentered)
                     CardTextContainerIcon(icon, Modifier.weight(1f))
             }
 
         }
-        if (position == Position.LEFT )
+        if (positionCard == PositionCard.LEFT )
             Spacer(Modifier.weight(1f))
     }
 

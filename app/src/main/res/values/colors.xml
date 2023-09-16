@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="tertiaryContainerTransparent" >#D0D3E4FF</color>
     <color name="tertiaryContainerGreen" >#ff8dfb77</color>
-    <color name="tertiaryContainerRed" >#FFffb4a8</color>
-    <color name="tertiaryContainerYellow" >#FFffea00</color>
+    <color name="tertiaryContainerEducation" >#FFFFBF00</color>
+    <color name="tertiaryContainerSkills" >#FFffea00</color>
 
 
 

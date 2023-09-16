@@ -84,13 +84,13 @@ fun MyCVApplicationIntroduction(modifier: Modifier = Modifier) {
             Modifier.fillMaxWidth(),
             bodyMaxLines = 100,
         )
-        Spacer(modifier = Modifier.height(20.dp))
+        /*Spacer(modifier = Modifier.height(20.dp))
         CustomCardCloud(
             Item(
                 title = stringResource(id = R.string.introductionTitle),
                 body = stringResource(id = R.string.introductionBody),
             ),
-        )
+        )*/
         /*Icon(
             painter = painterResource(id = R.drawable.baseline_school_24),
             contentDescription = stringResource(id = R.string.icon),
@@ -111,38 +111,18 @@ fun CustomCardCloud(
 ){
     var color = MaterialTheme.colorScheme.tertiaryContainer
     color = color.copy(alpha = 1f)
-    val borderColor = MaterialTheme.colorScheme.onTertiaryContainer
+    var borderColor = MaterialTheme.colorScheme.onTertiaryContainer
+    borderColor = borderColor.copy(alpha = 0.5f)
     Card(
+        shape = CloudShape(),
         modifier= modifier
             .padding(dimensionResource(id = R.dimen.padding_small))
-            .graphicsLayer {
-                clip = true
-                shape = CloudShape()//CloudShapeTestBorder//
-                shadowElevation = 10f
-            }
-            .fillMaxWidth()
-
-            /*.drawWithContent {
-            .drawWithCache {
-                val path = drawCloudPath(size = size)
-                val matrix = Matrix()
-                val pathSize = path.getBounds().size
-                matrix.scale(size.width / pathSize.width, size.height / pathSize.height)
-                path.transform(matrix)
-                onDrawWithContent {
-                    drawPath(
-                        path = path,
-                        color = color,
-                        style = Fill)
-                    drawPath(path = path, color = borderColor, style = Stroke(width = 2f))
-                }
-            }*/,
+            .fillMaxWidth(),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.tertiaryContainer
         ),
-        //elevation = CardDefaults.cardElevation(defaultElevation = 100.dp),
-        //border = BorderStroke(color = MaterialTheme.colorScheme.onTertiaryContainer, width = 1.dp),
-
+        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+        border = BorderStroke(color = borderColor, width = 1.dp),
     ){
         Column(
             verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small)),
@@ -192,7 +172,7 @@ fun drawCloudPath(size: Size): Path {
         val width = size.width
         val height = size.height
         //18:x=width:heigh
-        val hSideCurves = (size.width/80).toInt()
+        val hSideCurves = (size.width/50).toInt()
         val vSideCurves = ((hSideCurves * height) / width).toInt()
 
         val offsetRatio = 0.5f

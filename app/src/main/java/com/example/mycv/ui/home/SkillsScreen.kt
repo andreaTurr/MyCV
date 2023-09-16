@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,6 +28,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -93,12 +95,12 @@ fun MyCVApplicationSkills(modifier: Modifier = Modifier) {
             SkillsDisplayer(
                 stringResource(id = R.string.computers),
                 Skills,
-                color = colorResource(id = R.color.tertiaryContainerYellow)
+                color = colorResource(id = R.color.tertiaryContainerSkills)
             )
             SkillsDisplayer(
                 stringResource(id = R.string.languages),
                 Languages,
-                color = colorResource(id = R.color.tertiaryContainerYellow))
+                color = colorResource(id = R.color.tertiaryContainerSkills))
             CardTextContainer(
                 Item(
                     title = stringResource(id = R.string.passionsTitle),
@@ -106,8 +108,11 @@ fun MyCVApplicationSkills(modifier: Modifier = Modifier) {
                 ),
                 Modifier.fillMaxWidth(),
                 bodyMaxLines = 100,
-                color = colorResource(id = R.color.tertiaryContainerYellow)
+                color = colorResource(id = R.color.tertiaryContainerSkills),
+                cloudShape = true
             )
+            Spacer(modifier = Modifier.weight(1f))
+            ImageAtBottom(R.drawable.baseline_lightbulb_24)
             /*CardTextContainer(
                 Item(
                     title = stringResource(id = R.string.otherSkillsTitle),
@@ -130,13 +135,16 @@ fun SkillsDisplayer(
     modifier: Modifier = Modifier,
     color: Color = MaterialTheme.colorScheme.tertiaryContainer
 ) {
-    val shape = Shapes.small
+    var shape: Shape = Shapes.small
+    shape = CloudShape()
+    val borderColor = MaterialTheme.colorScheme.onTertiaryContainer
+    var border = BorderStroke(color = borderColor.copy(alpha = 0.5f), width = 1.dp)
     Card(
+        shape = shape,
         modifier = Modifier
             .padding(dimensionResource(id = R.dimen.padding_small)),
+        border = border,
         elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
-        shape = shape,
-        border = BorderStroke(color = MaterialTheme.colorScheme.onTertiaryContainer, width = 1.dp),
         colors = CardDefaults.cardColors(containerColor = color)
     ) {
         Text(
@@ -147,10 +155,12 @@ fun SkillsDisplayer(
             style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
             color = MaterialTheme.colorScheme.onTertiaryContainer,
         )
-        LazyColumn(modifier = modifier) {
+        LazyColumn(modifier = Modifier.padding(
+            bottom = dimensionResource(id = R.dimen.padding_small)
+        )) {
             itemsIndexed(items = skills){index, skill ->
                 SkillDiplay(skill)
-                if (index != Skills.size) {
+                if (index != (skills.size - 1)) {
                     Divider(
                         Modifier
                             .fillMaxWidth()

@@ -27,13 +27,14 @@
     <string name="itisTitle" translatable="false">ITIS Giulio riva Saronno</string>
     <string name="itisBody">Industrial Technical Institute - computer science address\nDiploma grade: 100 with honors out of 100</string>
     <string name="unimibTitle">Laurea triennale in Bicocca</string>
-    <string name="unimibBody">Laurea triennale in Bicocca, indirizzo Scienze e tecnologie informatiche</string>
+    <string name="unimibBody">Bachelor\'s degree in Bicocca, majoring in computer science and technology</string>
     <string name="gpsBuddy" translatable="false">Gps-Buddy</string>
     <string name="firstWorkTitle" translatable="false">Gps-buddy</string>
     <string name="firstWorkDate">12.2021-Present</string>
-    <string name="firstWorkBody">C programmer (Firmware Engineer)</string>
+    <string name="firstWorkBody">C programmer (firmware engineer). I work programming an in-house built tracking device for truck fleets, with a wide range of connections from USB to LTE.</string>
     <string name="stageSecondTitle" translatable="false">Stage - Antycip Simulation</string>
-    <string name="stageSecondBody">Introduction to programs in the programming environment: VRForces, Qualnet, CM-Labs, Vortex Studio.Introduction to virtual reality and simulation tools such as Oculus Rift and machine simulation stations in construction or shipbuilding.</string>
+    <string name="stageSecondBody">Introduction to: VRForces, Qualnet, CM-Labs, Vortex Studio.Introduction to VR and simulation tools.</string>
+    <string name="stageSecondBody2">Introduction to programs in the programming environment: VRForces, Qualnet, CM-Labs, Vortex Studio. Introduction to virtual reality and simulation tools such as Oculus Rift and machine simulation stations in construction or shipbuilding.</string>
     <string name="stageSecondDate" translatable="false">2019</string>
     <string name="stageFirstDate" translatable="false">2018</string>
     <string name="stageFirstTitle" translatable="false">Stage - Bettini video &amp; security technology</string>
