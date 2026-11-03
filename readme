@@ -1,0 +1,85 @@
+# My CV
+
+A personal CV presented as an Android app. Browse an introduction, skills, career experience, education, and contact details in a mobile-first interface built with Kotlin and Jetpack Compose.
+
+> Project: Android portfolio / CV app  
+> Platform: Android 7.0 (API 24) and later
+
+## Explore
+
+The app organizes CV information into these sections:
+
+- Introduction — a personal profile and overview
+- Skills — skills with proficiency indicators
+- Career — professional experience
+- Education — education history
+- Contact — contact information
+
+## Built with
+
+- Kotlin
+- Jetpack Compose and Material 3
+- Navigation Compose
+- AndroidX
+- Gradle
+
+## Run the app
+
+### Requirements
+
+- Android Studio with Android SDK 33 installed
+- An Android emulator or physical device running API 24 or later
+
+### In Android Studio
+
+1. Clone this repository and open it in Android Studio.
+2. Allow the Gradle project to sync.
+3. Select an emulator or connected Android device.
+4. Run the `app` configuration.
+
+### From the command line
+
+Build a debug APK:
+
+```bash
+./gradlew assembleDebug
+```
+
+On Windows:
+
+```bat
+gradlew.bat assembleDebug
+```
+
+Run the local unit tests:
+
+```bash
+./gradlew test
+```
+
+Run instrumentation tests on a connected device or emulator:
+
+```bash
+./gradlew connectedAndroidTest
+```
+
+## Project layout
+
+```text
+app/src/main/java/com/example/mycv/
+├── data/       # CV data models
+└── ui/
+    ├── home/   # Introduction, skills, career, education, and contact screens
+    ├── navigation/
+    └── theme/
+```
+
+Android resources are in `app/src/main/res/`. The Android app module and SDK settings are configured in `app/build.gradle`.
+
+## Configuration
+
+The app currently targets Android API 33, supports API 24 and later, and uses `com.example.mycv` as its application ID. Adjust these values in `app/build.gradle` if you are adapting the project for your own CV.
+
+## License
+
+A license is not currently specified for this repository.
